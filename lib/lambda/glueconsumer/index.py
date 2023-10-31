@@ -126,6 +126,7 @@ match region:
 #   Default is set to 1 hour but can be adjusted if you need to retroactively process missed data.
 #   Please set back to "1" after you've reconciled any missed data.
 current_time = datetime.now(tz=timezone.utc).isoformat()
+streaming_placeholder = str(datetime.strptime(current_time, '%Y-%m-%dT%H:%M:%S.%f%z'))
 ct_less_one_day = datetime.strptime(current_time, '%Y-%m-%dT%H:%M:%S.%f%z') - timedelta(days=1)
 custom_completed_jobs_process_time_range = datetime.strptime(current_time, '%Y-%m-%dT%H:%M:%S.%f%z') - timedelta(hours=int(environ.get('CUSTOM_COMPLETED_JOBS_PROCESS_TIME_RANGE')))
 logger.debug("Current time: " + str(current_time))
@@ -269,7 +270,7 @@ def commit_job(job_run: dict) -> dict:
     if 'CompletedOn' in formatted_dump:
         details['job_end_time'] = formatted_dump['CompletedOn']
     else:
-        details['job_end_time'] = "1970-1-1 00:00:00.000000+00:00"
+        details['job_end_time'] = streaming_placeholder
 
     # Catch timeout if job isn't in RUNNING state
     if 'Timeout' in formatted_dump:

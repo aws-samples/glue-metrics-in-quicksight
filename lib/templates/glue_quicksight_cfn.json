@@ -187,21 +187,6 @@
                     },
                     "TimeGranularity": "DAY"
                   }
-                },
-                {
-                  "CategoryFilter": {
-                    "Column": {
-                      "ColumnName": "job_state",
-                      "DataSetIdentifier": "glue_job_info"
-                    },
-                    "Configuration": {
-                      "FilterListConfiguration": {
-                        "MatchOperator": "CONTAINS",
-                        "SelectAllOptions": "FILTER_ALL_VALUES"
-                      }
-                    },
-                    "FilterId": "4d514b7d-f7ca-4e25-9710-0f2d6ecf47bd"
-                  }
                 }
               ],
               "ScopeConfiguration": {
