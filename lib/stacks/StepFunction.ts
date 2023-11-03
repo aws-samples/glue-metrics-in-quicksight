@@ -379,17 +379,18 @@ export class StepFunctions extends NestedStack {
                        job_version,
                        run_attempt,
                        case
-                           when job_runtime = 0 then 0
-                           when job_version > '2.0' then case
-                                                             when job_runtime = 0 then 0
-                                                             when is_autoscaled = 'true' and dpu_seconds > 0 and (job_runtime / 60) > 1
-                                                                 then ((dpu_seconds / 60) / 60) * rate
-                                                             when is_autoscaled = 'false' and (job_runtime / 60) > 1
-                                                                 then ((job_runtime / 60) / 60) * num_workers * rate * price_mult
-                                                             else (1 / 60) * num_workers * rate * price_mult end
-                           else case
-                                    when (job_runtime / 60) > 10 then ((job_runtime / 60) / 60) * num_workers * rate
-                                    else (10 / 60) * num_workers * rate end end            as est_cost,
+                            when job_runtime = 0 then 0
+                            when job_version > '2.0' then case
+                                when job_runtime = 0 then 0
+                                when is_autoscaled = 'true'
+                                and dpu_seconds > 0
+                                and (job_runtime / 60) > 1 then ((dpu_seconds / 60) / 60) * cast(rate as decimal(10, 2))
+                                when is_autoscaled = 'false'
+                                and (job_runtime / 60) > 1 then ((job_runtime / 60) / 60) * cast(num_workers as decimal(10, 2)) * cast(rate as decimal(10, 2)) * price_mult else (1 / 60) * cast(num_workers as decimal(10, 2)) * cast(rate as decimal(10, 2)) * price_mult
+                            end else case
+                                when (job_runtime / 60) > 10 then ((job_runtime / 60) / 60) * cast(num_workers as decimal(10, 2)) * cast(rate as decimal(10, 2)) else (10 / 60) * cast(num_workers as decimal(10, 2)) * cast(rate as decimal(10, 2))
+                            end
+                        end as est_cost,
                        ('Job state: ' || job_state || ', ' || 'Worker type: ' || worker_type || ', ' ||
                         'Job is autoscaled?: ' || is_autoscaled || ', ' || 'Execution class: ' || exec_class || ', ' ||
                         'Job type: ' || job_type)                                          as job_detail,

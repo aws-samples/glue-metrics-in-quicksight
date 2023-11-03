@@ -921,7 +921,7 @@
                     },
                     "Title": {
                       "FormatText": {
-                        "RichText": "<visual-title>Job runs by job name</visual-title>"
+                        "RichText": "<visual-title>Job runs by job type</visual-title>"
                       },
                       "Visibility": "VISIBLE"
                     },
@@ -5052,7 +5052,7 @@
                     },
                     "Title": {
                       "FormatText": {
-                        "RichText": "<visual-title>Job runs by job name</visual-title>"
+                        "RichText": "<visual-title>Job runs by job type</visual-title>"
                       },
                       "Visibility": "VISIBLE"
                     },

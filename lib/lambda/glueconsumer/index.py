@@ -134,7 +134,7 @@ logger.debug("Current time less one day: " + str(ct_less_one_day))
 logger.debug("Custom time range set to process after: " + str(custom_completed_jobs_process_time_range))
 
 # Valid AWS Glue job states
-valid_job_states = ['FAILED', 'SUCCEEDED', 'STOPPED']
+valid_job_states = ['FAILED', 'SUCCEEDED', 'STOPPED', 'TIMEOUT']
 
 # Entrypoint
 def lambda_handler(event, context):
