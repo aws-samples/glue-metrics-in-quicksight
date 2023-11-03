@@ -1,6 +1,6 @@
 # Glue Metrics in Quicksight
 
-> **NOTE**: This is in conjunction with an AWS blog, for more documentation please see: [Deploy a quicksight dashboard to monitor aws glue ETL job metrics and set alarms](https://aws.amazon.com/blogs/big-data/deploy-a-quicksight-dashboard-to-monitor-aws-glue-etl-job-metrics-and-set-alarms)
+> **NOTE**: This is in conjunction with an AWS blog, for more documentation please see: [Deploy a quicksight dashboard to monitor aws glue ETL job metrics and set alarms](https://aws.amazon.com/blogs/big-data/deploy-amazon-quicksight-dashboards-to-monitor-aws-glue-etl-job-metrics-and-set-alarms/)
 
 Example architecture showing how to collect Glue metrics from both cloudwatch and the Glue API and visualize them in Quicksight. Can be adapted to any use case where you want to collect metrics and information on an event based schedule and visualize it in Quicksight.
 
