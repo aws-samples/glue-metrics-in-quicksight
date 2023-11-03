@@ -854,10 +854,10 @@
                             {
                               "CategoricalDimensionField": {
                                 "Column": {
-                                  "ColumnName": "job_name",
+                                  "ColumnName": "exec_class",
                                   "DataSetIdentifier": "glue_job_info"
                                 },
-                                "FieldId": "f5886fd9-7d22-4181-8b61-5efb84c84397.job_name.0.1695067430208",
+                                "FieldId": "f5886fd9-7d22-4181-8b61-5efb84c84397.exec_class.0.1695067430208",
                                 "HierarchyId": "d9b8e127-2e58-44f0-8927-4005f7020a5e"
                               }
                             }
@@ -883,7 +883,7 @@
                           "TooltipFields": [
                             {
                               "FieldTooltipItem": {
-                                "FieldId": "f5886fd9-7d22-4181-8b61-5efb84c84397.job_name.0.1695067430208",
+                                "FieldId": "f5886fd9-7d22-4181-8b61-5efb84c84397.exec_class.0.1695067430208",
                                 "Visibility": "VISIBLE"
                               }
                             }
@@ -4985,10 +4985,10 @@
                             {
                               "CategoricalDimensionField": {
                                 "Column": {
-                                  "ColumnName": "job_name",
+                                  "ColumnName": "exec_class",
                                   "DataSetIdentifier": "glue_job_info"
                                 },
-                                "FieldId": "f5886fd9-7d22-4181-8b61-5efb84c84397.job_name.0.1695067430208",
+                                "FieldId": "f5886fd9-7d22-4181-8b61-5efb84c84397.exec_class.0.1695067430208",
                                 "HierarchyId": "d9b8e127-2e58-44f0-8927-4005f7020a5e"
                               }
                             }
@@ -5014,7 +5014,7 @@
                           "TooltipFields": [
                             {
                               "FieldTooltipItem": {
-                                "FieldId": "f5886fd9-7d22-4181-8b61-5efb84c84397.job_name.0.1695067430208",
+                                "FieldId": "f5886fd9-7d22-4181-8b61-5efb84c84397.exec_class.0.1695067430208",
                                 "Visibility": "VISIBLE"
                               }
                             }
