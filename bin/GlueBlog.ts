@@ -148,6 +148,11 @@ class GlueMetricsInQuicksight extends Stack {
             '/GlueMetricsInQuicksight/QuicksightStack/QuicksightRole/PolicyGlueMetricsInQuicksightQuicksightStackQuicksightRole916D490B/Resource',
             [{ id: 'AwsSolutions-IAM5', reason: 'Manually reviewed policy and resource stars are within reason with all available information at deployment time' }]
         );
+        NagSuppressions.addResourceSuppressionsByPath(
+            this,
+            '/GlueMetricsInQuicksight/StepFunctionsStack/GlueJobConsumer/Resource',
+            [{ id: 'AwsSolutions-L1', reason: 'Suppress error caused by python_3_12 release in December' }]
+        );
     }
 }
 
