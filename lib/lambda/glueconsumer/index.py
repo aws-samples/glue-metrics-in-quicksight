@@ -141,6 +141,7 @@ def lambda_handler(event, context):
     # Get all jobs, paginate if applicable.
     glue_jobs = glue.list_jobs()
     jobs = glue_jobs['JobNames']
+  
 
     # list_jobs does not support pagination, using NextToken
     while 'NextToken' in glue_jobs:
@@ -148,6 +149,7 @@ def lambda_handler(event, context):
         jobs.extend(glue_jobs['JobNames'])
 
     logger.debug("Number of jobs: " + str(len(jobs)))
+    print("Number of jobs: " + str(len(jobs)))
 
     # Iterate through job runs for each job and build a list of runs
     job_runs = []
@@ -159,8 +161,9 @@ def lambda_handler(event, context):
         )
         for run in runs['JobRuns']:
             try:
-                if run['JobRunState'] == 'RUNNING' or run['CompletedOn'] > ct_less_one_day:
+                if run['JobRunState'] == 'RUNNING' or run['CompletedOn'] > ct_less_one_day or run['CompletedOn'] > custom_completed_jobs_process_time_range:
                     job_runs.append(run)
+                
             except Exception as e:
                 logger.warning("Job Run " + run['Id'] + " did not meet validation check... moving on.")
 
@@ -311,6 +314,8 @@ def commit_job(job_run: dict) -> dict:
             details['price_mult'] = 8
         case 'Z.2X':
             details['price_mult'] = 2
+        case 'G.025X':
+            details['price_mult'] = 0.25
         case _:
             details['price_mult'] = 1
             logger.warning("Worker type not recognized... setting default.")
